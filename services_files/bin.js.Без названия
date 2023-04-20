@@ -1,0 +1,207 @@
+//var ND_CONF = {
+//    COOKIE: "NDTEST",
+//    URL: "/send.php",
+//    TIME: 7776000
+//};
+var ND_CONF;
+
+var ND = {
+    
+    SCRIPT_API: "/actions/bin3/jsconf.php",
+    
+
+    /**
+     * JS-объект, для получения данных
+     * 
+     * Изначально в нём будет страница входа и страница перехода, 
+     * после обработки он соберёт все данные
+     * 
+     * @type object
+     */
+    FIELDS: {
+
+        /**
+         * Страница входа
+         * @type window.location.href|DOMString
+         */
+        LOCAL: window.location.href,
+        /**
+         * Страница перехода
+         * @type document.referrer|Node.referrer|Document.referrer|String
+         */
+        REFERRER: document.referrer,
+
+    },
+
+    /**
+     * Пишет в куки данные FIELDS
+     * @returns {undefined}
+     */
+    setCookie: function () {
+
+        //Проверяет существуют ли куки?
+        if (this.getCookie(ND_CONF.COOKIE) === undefined) { //Если ещё нет куки
+            //Поучает дату
+            var date = new Date; //Нужна текущая дата
+            //получает дату удаления
+            date.setDate(date.getDate() + ND_CONF.TIME); //90 дней хранить куки
+            //Преобразует в строку для удобной записи
+            var jsonFilds = JSON.stringify(this.FIELDS); //JSON-строка
+            //Пишет в куки
+            document.cookie = ND_CONF.COOKIE + "=" + jsonFilds + "; expires=" + date.toUTCString() + "; path=/"; //Теперь всё есть и можно записать в куки
+
+        }
+
+    },
+
+    /**
+     * Получает получения куки по имени
+     * @param String name
+     * @returns array|{undefined}
+     */
+    getCookie: function (name) {
+        var matches = document.cookie.match(new RegExp(
+                "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+                ));
+        return matches ? decodeURIComponent(matches[1]) : undefined;
+    },
+
+    /**
+     * Отправляет данные на сервер
+     * @param String data
+     * @param function callback
+     * @returns {ND.sendScript.xhr|ActiveXObject|XMLHttpRequest}
+     */
+    sendScript: function (data, callback) {
+
+        var params = data + "&nd=request";
+
+        var xhr = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP");
+
+        xhr.open('POST', ND_CONF.URL, true);
+
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState > 3 && xhr.status == 200) {
+                if (callback !== undefined){
+                    callback(xhr.responseText);
+                }
+            }
+        };
+
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+        xhr.send(params);
+
+        return xhr;
+    },
+    
+    /**
+     * Загружает файл на сервер
+     * @param String data
+     * @param function callback
+     * @returns {ND.sendScript.xhr|ActiveXObject|XMLHttpRequest}
+     */
+    uploadFile: function (data, callback) {
+
+        var params = data;
+
+        var xhr = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP");
+
+        xhr.open('POST', ND_CONF.UPLOAD, true);
+        
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState > 3 && xhr.status == 200) {
+                if (callback !== undefined){
+                    callback(xhr.responseText);
+                }
+            }
+        };
+
+        xhr.send(params);
+
+        return xhr;
+    },
+    getConfig: function (callback) {
+
+        var params = "nd=jsconfig";
+
+        var xhr = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP");
+
+        xhr.open('POST', ND.SCRIPT_API, true);
+
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState > 3 && xhr.status == 200) {
+                if (callback !== undefined){
+                    callback(xhr.responseText);
+                }
+            }
+        };
+
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+        xhr.send(params);
+
+        return xhr;
+    },
+    
+    /**
+     * Запускает процесс получение данных
+     * @returns {undefined}
+     */
+    init: function () {
+        var get = window.location.search; //Получаем get-запрос
+        get = get.substr(1); //Получаем get-запрос
+
+        if (get.indexOf("=") !== -1) {
+
+            var arGetList = get.split("&");//Получаем элементы get-запроса
+
+            for (i = 0; i < arGetList.length; i++) { //Итерация по элементам из get-запроса
+
+                if (arGetList[i].indexOf("=") !== -1) {
+
+                    var arItem = arGetList[i].split("="); //Раздеоение ключа и значение
+
+                    switch (arItem[0]) {
+
+                        case "utm_source" :
+                            ND.FIELDS.UTM_SOURCE = encodeURIComponent(arItem[1]);
+                            break;
+                        case "utm_campaign" :
+                            ND.FIELDS.UTM_CAMPAIGN = encodeURIComponent(arItem[1]);
+                            break;
+                        case "utm_term" :
+                            ND.FIELDS.UTM_TERM = encodeURIComponent(arItem[1]);
+                            break;
+                        case "utm_medium" :
+                            ND.FIELDS.UTM_MEDIUM = encodeURIComponent(arItem[1]);
+                            break;
+                        case "utm_content" :
+                            ND.FIELDS.UTM_CONTENT = encodeURIComponent(arItem[1]);
+                            break;
+
+                    }
+
+                }
+
+            }
+
+        }
+        
+        //Пишет куки
+        ND.setCookie(); //пишем всё в куки
+    }
+
+}
+
+//Получить после загрузки
+window.onload = function () {
+    if (ND_CONF !== undefined){
+        ND.init();
+    }
+}
+
+
+
+
+

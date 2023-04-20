@@ -1,0 +1,66 @@
+.imbox__price-discount {
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    left: 0px;
+    line-height: 0.5;
+    color: rgba(37, 40, 54, 0.5);
+    font-size: 16px;
+    margin-top: -4px;
+}
+
+.imbox__price-discount:after {
+    content:'';
+    display: block;
+    height:1px;
+    background:#DE2B32;
+    z-index: 3;
+    top: 50%;
+    position: absolute;
+    left: -8px;
+    right: -8px;
+}
+
+.imbox__price-number {
+    letter-spacing: -4px;
+}
+
+.imbox__percentages {
+    justify-content: center;
+}
+
+.imbox__item {
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: calc(1 / 3 * 100%);
+    max-width: calc(1 / 3 * 100%);
+    width: calc(1 / 3 * 100%);
+}
+
+.fs {
+    overflow: visible;
+}
+
+.fs__background {
+    min-width: 100%;
+}
+
+.allprovaider__slide-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.allprovaider__slide-wrapper > div {
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: calc(1 / 3 * 100%);
+    max-width: calc(1 / 3 * 100%);
+}
+
+@media (min-width: 1200px) {
+
+    .allprovaider__slide-wrapper > div {
+        flex-basis: calc(1 / 6 * 100%);
+        max-width: calc(1 / 6 * 100%);
+    }
+}

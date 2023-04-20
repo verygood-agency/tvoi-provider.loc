@@ -1,0 +1,347 @@
+.inputlabel .notapproved:after {
+	display: none;
+}
+
+.is-system-tarif {
+	color: #868ca5;
+}
+
+.header__phone {
+	font-size: 24px;
+}
+.header__phone a {
+	color: #fff;
+	text-decoration: none;
+}
+.header--sticky .header__phone a {
+	color: #1a1a1a;
+}
+.provaider__header .header__phone a {
+	color: #1a1a1a;
+	text-decoration: none;
+}
+
+.header__support-phone a {
+	color: #1a1a1a;
+	text-decoration: none;
+}
+
+.footer__phone a {
+	color: #1a1a1a;
+	text-decoration: none;
+}
+
+.connectme__content.no-top-margin {
+	margin-top: 0px;
+}
+
+.no-margin {
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+
+.pr50 {
+	padding-right: 50px;
+}
+
+.phone-ico {
+	transform: translateY(3px);
+}
+
+.sub_formtext {
+	color: #888ea6;
+	font-size: 14px;
+}
+
+.customcolor,
+.customcolor:hover,
+.customcolor:focus {
+	background: #ec1c24;
+}
+
+.customcolor:hover,
+.customcolor:focus {
+	box-shadow: 0px 6px 36px rgba(236, 28, 36, 0.6);
+}
+
+@media (min-width: 1024px) {
+	.customwide:nth-child(1) {
+		flex-basis: 320px !important;
+	}
+
+	.custom_wire {
+		background: url("/local/templates/main/img/background_cw2.jpg") no-repeat #ffffff;
+		background-position: right;
+	}
+
+	.mw480 {
+		max-width: 480px;
+	}
+
+	.lh40 {
+		line-height: 40px;
+	}
+
+	.lh25 {
+		margin-top: 9px;
+		line-height: 25px;
+		display: inline-block;
+	}
+
+	.custombottom {
+		margin-bottom: 80px;
+	}
+}
+
+@media (min-width: 768px) {
+	/*s*/
+	.imbox__header {
+		min-height: 95px;
+	}
+	/*e*/
+}
+
+@media (max-width: 767px) {
+	.header__phone {
+		font-size: 14px;
+	}
+}
+
+.provaider__allmobile {
+	z-index: auto;
+}
+
+.ui-autocomplete {
+	z-index: 2000;
+}
+
+.redbutton {
+	background: #ec1c24;
+}
+
+input.red,
+textarea.red {
+	border: 1px solid #ff0000 !important;
+}
+
+input.red2,
+textarea.red2 {
+	border: 2px solid #ff0000 !important;
+}
+
+.upper {
+	text-transform: uppercase;
+}
+
+.connectme__list {
+	justify-content: flex-start;
+}
+
+.imbox-hide {
+	display: none;
+}
+
+.showform {
+	display: block;
+}
+
+.hideform {
+	display: none;
+}
+
+.imbox__action.b20 {
+	background: url("../img/20.svg") no-repeat;
+	background-size: 100%;
+}
+.imbox__action.exclusive {
+	background: url("../img/exclusive.svg") no-repeat;
+	background-size: 100%;
+}
+.imbox__action.test {
+	background: url("../img/test.svg") no-repeat;
+	background-size: 100%;
+}
+
+.modal__action.b20 {
+	background: url("../img/20.svg") no-repeat;
+	background-size: 100%;
+}
+.modal__action.exclusive {
+	background: url("../img/exclusive.svg") no-repeat;
+	background-size: 100%;
+}
+.modal__action.test {
+	background: url("../img/test.svg") no-repeat;
+	background-size: 100%;
+}
+
+.modal__providers {
+	display: flex;
+	flex-wrap: wrap;
+	margin: 0 -16px;
+	margin-bottom: 70px;
+}
+
+.modal__providers-item {
+	text-decoration: none;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.modal__providers-item-wrap {
+	width: calc(100% / 4);
+	display: block;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 0 16px;
+}
+
+.modal__providers-name {
+	text-align: center;
+	font-size: 12px;
+	text-transform: uppercase;
+	font-weight: bold;
+	margin-top: 20px;
+}
+
+.modal__providers-btn {
+	max-width: 300px;
+	margin: 0 auto;
+	display: block;
+	position: relative;
+	z-index: 10;
+}
+
+.modal__providers-pick {
+	background-color: #f6f7fb;
+	padding: 0 76px;
+	padding-top: 56px;
+	margin: 0px -76px;
+	margin-top: -30px;
+}
+
+.connectme__form {
+	margin-bottom: 0;
+	padding-bottom: 32px;
+}
+
+.modal__providers-subtitle {
+	font-size: 24px;
+	font-weight: bold;
+	color: #1a1a1a;
+	margin: 0;
+}
+
+.connectme__address {
+	text-transform: uppercase;
+	font-size: 12px;
+	font-weight: 600;
+	margin-top: 10px;
+	display: block;
+}
+
+a.modal__providers-btn {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+a.modal__providers-btn:hover {
+	color: #fff;
+}
+
+@media (max-width: 768px) {
+	.modal__providers-pick {
+		padding: 0px 24px;
+		padding-top: 26px;
+		margin: 0px -24px;
+		margin-top: 30px;
+	}
+
+	.modal__providers-item-wrap {
+		width: 100%;
+		align-items: flex-start;
+	}
+
+	.modal__providers-item-wrap:not(:last-child) {
+		margin-bottom: 20px;
+	}
+
+	.modal__providers-item {
+		flex-direction: row;
+	}
+
+	.modal__providers {
+		margin-bottom: 20px;
+	}
+
+	.modal__providers-btn {
+		max-width: 100%;
+	}
+
+	.modal__providers-img {
+		margin-right: 24px;
+	}
+
+	.modal__providers-subtitle {
+		font-size: 18px;
+	}
+}
+
+/* Новые стили для модалки Ронин 05.10.2021  */
+#modal-demo-cityconfirm .fields-group__item {
+	margin-right: 40px;
+	flex-basis: initial;
+	display: block;
+	max-width: 210px !important;
+	width: 100% !important;
+}
+
+#modal-demo-cityconfirm .fields-group__item:last-child {
+	margin-right: 0;
+}
+
+#modal-demo-cityconfirm .btn {
+	max-width: 210px !important;
+	width: 100% !important;
+	display: block;
+}
+
+#modal-demo-cityconfirm .formgird3 .fields-group__item:nth-child(2) {
+	flex-basis: initial;
+	max-width: initial;
+	min-width: initial;
+}
+
+/* Стилизация ссылки "Показать еще"  */
+.custom-link-more {
+	font-weight: 700;
+	font-size: 13px;
+	cursor: pointer;
+}
+
+ul.list li:nth-child(n + 6) {
+	display: none;
+}
+
+#modal-demo-01 .modal__content {
+	min-height: auto;
+	flex-basis: auto;
+}
+
+#modal-demo-01 .mycity__group {
+	height: auto;
+}
+@media (min-width: 768px) {
+	#modal-demo-01 .mycity__list {
+		display: grid;
+		flex-direction: column;
+		grid-template-columns: 1fr 1fr 1fr 1fr;
+	}
+}
+
+.grecaptcha-badge{
+display:none;
+}
