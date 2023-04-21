@@ -135,7 +135,23 @@
   <link rel="stylesheet" href="./css/style.css">
 </head>
 
-<body><noscript>У вас отключен JavaScript. Это пугает.</noscript>
+<body>
+  <noscript>У вас отключен JavaScript. Это пугает.</noscript>
+
+  <!-- виджет обратного звонка  -->
+  <div class="custom-vijet">
+    <!-- кнопка вызова диалогового окна  -->
+    <button class="custom-vijet__btn-call">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"><g clip-path="url(#a)"><path fill="#fff" d="M22.074 15.753c-1.469 0-2.912-.23-4.279-.681-.67-.229-1.494-.019-1.902.401l-2.699 2.037c-3.13-1.671-5.057-3.598-6.705-6.704l1.977-2.628a1.94 1.94 0 0 0 .477-1.966 13.664 13.664 0 0 1-.684-4.286A1.928 1.928 0 0 0 6.333 0H1.926A1.928 1.928 0 0 0 0 1.926C0 14.098 9.902 24 22.074 24A1.928 1.928 0 0 0 24 22.074v-4.395a1.928 1.928 0 0 0-1.926-1.926Z"/></g><defs><clipPath id="a"><path fill="#fff" d="M0 0h24v24H0z"/></clipPath></defs></svg>
+    </button>
+    <!-- КОНЕЦ кнопка вызова диалогового окна  -->
+
+    <!-- оверлей - кликабельный  -->
+    <div class="custom-overlay show"></div>
+    <!-- КОНЕЦ оверлей - кликабельный  -->
+
+  </div>
+  <!-- виджет обратного звонка  -->
 
   <div class="mobilemenu">
     <ul class="menu">
@@ -5557,20 +5573,6 @@
       </div>
     </div>
   </div>
-
-  <!-- виджет обратного звонка  -->
-
-  <div class="custom-vijet">
-    <button class="custom-vijet__btn-call">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"><g clip-path="url(#a)"><path fill="#fff" d="M22.074 15.753c-1.469 0-2.912-.23-4.279-.681-.67-.229-1.494-.019-1.902.401l-2.699 2.037c-3.13-1.671-5.057-3.598-6.705-6.704l1.977-2.628a1.94 1.94 0 0 0 .477-1.966 13.664 13.664 0 0 1-.684-4.286A1.928 1.928 0 0 0 6.333 0H1.926A1.928 1.928 0 0 0 0 1.926C0 14.098 9.902 24 22.074 24A1.928 1.928 0 0 0 24 22.074v-4.395a1.928 1.928 0 0 0-1.926-1.926Z"/></g><defs><clipPath id="a"><path fill="#fff" d="M0 0h24v24H0z"/></clipPath></defs></svg>
-    </button>
-  </div>
-  <!-- виджет обратного звонка  -->
-
-
-
-
-
 
   <script
     type="text/javascript">if (!window.BX) window.BX = {}; if (!window.BX.message) window.BX.message = function (mess) { if (typeof mess === 'object') { for (let i in mess) { BX.message[i] = mess[i]; } return true; } };</script>

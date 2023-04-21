@@ -417,10 +417,29 @@ body {
   position: relative;
 }
 
-.custom-vijet__btn-call {
+.custom-overlay {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(55, 55, 55, 0.5);
   position: absolute;
-  bottom: 55px;
-  right: 55px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 999;
+  opacity: 0;
+  transition: all 0.3s;
+  pointer-events: none;
+}
+.custom-overlay.show {
+  opacity: 1;
+  pointer-events: initial;
+}
+
+.custom-vijet__btn-call {
+  position: fixed;
+  right: 5%;
+  bottom: 5%;
   z-index: 999;
   width: 64px;
   height: 64px;
